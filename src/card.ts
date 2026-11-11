@@ -1,4 +1,5 @@
 import {readFileSync} from 'node:fs';
+import {COLOR_KEYS, PRESETS, PRESET_NAMES, type Colors, type PresetName} from './themes.ts';
 
 export interface Field { label: string; value: string }
 export interface Group { name: string; fields: Field[] }
@@ -10,9 +11,15 @@ export interface Profile {
   prompt?: boolean;
   leaders?: boolean;
   command?: string;
+  /** Color preset for each mode. Defaults: github-dark and github-light. */
+  theme?: Partial<Record<Theme, PresetName>>;
+  /** Color overrides for each mode, applied on top of the preset. */
+  colors?: Partial<Record<Theme, Partial<Pick<Colors, (typeof COLOR_KEYS)[number]>>>>;
 }
 
 export type Theme = 'dark' | 'light';
+const MODES: Theme[] = ['dark', 'light'];
+const DEFAULT_PRESET: Record<Theme, PresetName> = {dark: 'github-dark', light: 'github-light'};
 
 // Input limits (documented in the README).
 const LIMITS = {
@@ -46,32 +53,10 @@ const CARD_RADIUS = 12;
 const GLYPH_WIDTH = 0.6; // advance of Fira Code, as a fraction of the font size
 const PALETTE_CELL_WIDTH = FONT_SIZE * GLYPH_WIDTH * 3;
 
-// Colors follow GitHub Primer. `border` is empty when the card has no outline.
-// Each palette has two rows of eight ANSI colors: normal, then bright.
-const THEMES = {
-  dark: {
-    bg: '#151b23',
-    dim: '#6e7681',
-    border: '',
-    fg: '#f0f6fc',
-    accent: '#4493f8',
-    palette: [
-      ['#2f3742', '#ff7b72', '#3fb950', '#d29922', '#58a6ff', '#be8fff', '#39c5cf', '#f0f6fc'],
-      ['#656c76', '#ffa198', '#56d364', '#e3b341', '#79c0ff', '#d2a8ff', '#56d4dd', '#ffffff']
-    ]
-  },
-  light: {
-    bg: '#ffffff',
-    dim: '#8c959f',
-    border: '#d1d9e0',
-    fg: '#1f2328',
-    accent: '#0550ae',
-    palette: [
-      ['#1f2328', '#cf222e', '#116329', '#4d2d00', '#0969da', '#8250df', '#1b7c83', '#59636e'],
-      ['#393f46', '#a40e26', '#1a7f37', '#633c01', '#218bff', '#a475f9', '#3192aa', '#818b98']
-    ]
-  }
-};
+// Preset colors, plus any overrides from the profile.
+function resolveColors(profile: Profile, mode: Theme): Colors {
+  return {...PRESETS[profile.theme?.[mode] ?? DEFAULT_PRESET[mode]], ...profile.colors?.[mode]};
+}
 
 // Fira Code subsets are embedded so the card looks the same without installed fonts.
 const fontFace = [400, 700]
@@ -96,6 +81,33 @@ function checkText(value: unknown, path: string, max: number, singleLine = false
   if (singleLine && /[\r\n]/.test(value)) fail(path, 'must be a single line');
 }
 
+const HEX = /^#[0-9a-fA-F]{6}$/;
+
+function checkTheme(profile: Profile): void {
+  for (const [key, value] of [['theme', profile.theme], ['colors', profile.colors]] as const) {
+    if (value === undefined) continue;
+    if (!value || typeof value !== 'object' || Array.isArray(value)) fail(key, 'must be an object with "dark" and/or "light"');
+    for (const mode of Object.keys(value)) if (!MODES.includes(mode as Theme)) fail(`${key}.${mode}`, 'unknown mode, use "dark" or "light"');
+  }
+  for (const mode of MODES) {
+    const preset = profile.theme?.[mode];
+    if (preset !== undefined && !PRESET_NAMES.includes(preset)) {
+      fail(`theme.${mode}`, `unknown preset "${preset}". Available: ${PRESET_NAMES.join(', ')}`);
+    }
+    const overrides = profile.colors?.[mode];
+    if (overrides === undefined) continue;
+    if (!overrides || typeof overrides !== 'object' || Array.isArray(overrides)) fail(`colors.${mode}`, 'must be an object');
+    for (const [key, value] of Object.entries(overrides)) {
+      const at = `colors.${mode}.${key}`;
+      if (!(COLOR_KEYS as readonly string[]).includes(key)) fail(at, `unknown color. Available: ${COLOR_KEYS.join(', ')}`);
+      const allowEmpty = key === 'border' && value === '';
+      if (!allowEmpty && (typeof value !== 'string' || !HEX.test(value))) {
+        fail(at, `must be a hex color like #1a2b3c${key === 'border' ? ' or "" for no border' : ''}`);
+      }
+    }
+  }
+}
+
 export function validate(input: unknown): asserts input is Profile {
   if (!input || typeof input !== 'object' || Array.isArray(input)) fail('profile', 'must be an object');
   const profile = input as Profile;
@@ -106,6 +118,8 @@ export function validate(input: unknown): asserts input is Profile {
   for (const key of ['palette', 'prompt', 'leaders'] as const) {
     if (profile[key] !== undefined && typeof profile[key] !== 'boolean') fail(key, 'must be true or false');
   }
+
+  checkTheme(profile);
 
   const groups = profile.groups;
   if (!Array.isArray(groups) || !groups.length || groups.length > LIMITS.groups) {
@@ -162,7 +176,7 @@ function parseAscii(ascii: string): string[] {
 export function render(profile: Profile, ascii: string, theme: Theme): string {
   validate(profile);
   const lines = parseAscii(ascii);
-  const colors = THEMES[theme];
+  const colors = resolveColors(profile, theme);
 
   const text = (x: number, y: number, inner: string, fill = colors.fg, extra = '') =>
     `<text x="${x}" y="${y}" fill="${fill}" ${extra.includes('font-size') ? '' : `font-size="${FONT_SIZE}" `}${extra}>${inner}</text>`;

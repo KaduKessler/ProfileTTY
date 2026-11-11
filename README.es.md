@@ -93,8 +93,40 @@ npm run card -- path/to/profile.json dist
 | `prompt` | Opcional: `true` (predeterminado) o `false` para ocultar la línea de prompt superior |
 | `leaders` | Opcional: `true` para dibujar líneas de puntos entre la etiqueta y el valor alineado a la derecha (predeterminado `false`) |
 | `command` | Opcional: comando mostrado en el prompt, hasta 30 caracteres (predeterminado `profiletty`) |
+| `theme` | Preset de colores opcional para cada modo, por ejemplo `{ "dark": "dracula", "light": "github-light" }`. Consulta [Temas](#temas) |
+| `colors` | Sustituciones opcionales en hexadecimal para cada modo, por ejemplo `{ "dark": { "accent": "#ff8800" } }`. Consulta [Temas](#temas) |
 
 El arte admite caracteres ASCII imprimibles, hasta 180 columnas y 100 líneas. Conserva los espacios iniciales y utiliza espacios en lugar de tabulaciones. No se admiten emojis ni dibujos con bloques Unicode. Cada SVG incluye un subconjunto de Fira Code, por lo que el aspecto no depende de las fuentes instaladas.
+
+## Temas
+
+Cada tarjeta tiene una imagen oscura y una clara. Eliges un preset para cada una con `theme`; el valor por defecto es `github-dark` y `github-light`.
+
+| Preset | Aspecto |
+| --- | --- |
+| `github-dark`, `github-light` | Colores de GitHub Primer (por defecto) |
+| `dracula` | Dracula, oscuro |
+| `tokyo-night`, `tokyo-night-day` | Tokyo Night, oscuro y claro |
+| `solarized-dark`, `solarized-light` | Solarized, oscuro y claro |
+
+```json
+{
+  "theme": { "dark": "tokyo-night", "light": "tokyo-night-day" }
+}
+```
+
+Cualquier preset funciona en ambos modos, así que `"dark": "solarized-light"` está permitido. Una tarjeta clara en una página oscura es decisión tuya.
+
+Cambia colores sueltos con `colors`. Las claves permitidas son `bg`, `fg`, `dim`, `accent` y `border`. Usa valores `#rrggbb`, o `""` en `border` para quitar el borde. Los 16 bloques de la paleta vienen del preset.
+
+```json
+{
+  "theme": { "dark": "dracula" },
+  "colors": { "dark": { "accent": "#ff79c6" }, "light": { "border": "" } }
+}
+```
+
+Los colores de los presets vienen de los proyectos indicados en [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). No son temas oficiales de esos proyectos y ProfileTTY no está afiliado a ellos. En Solarized, dos bloques de la paleta tienen el mismo color que el fondo; así se define la paleta original.
 
 ## Crea tu arte ASCII
 

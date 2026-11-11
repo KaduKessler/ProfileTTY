@@ -93,8 +93,40 @@ npm run card -- path/to/profile.json dist
 | `prompt` | Opcional: `true` (padrão) ou `false` para ocultar a linha de prompt no topo |
 | `leaders` | Opcional: `true` para desenhar linhas de pontos entre o rótulo e o valor, alinhado à direita (padrão `false`) |
 | `command` | Opcional: comando exibido no prompt, até 30 caracteres (padrão `profiletty`) |
+| `theme` | Preset de cores opcional para cada modo, por exemplo `{ "dark": "dracula", "light": "github-light" }`. Veja [Temas](#temas) |
+| `colors` | Substituições opcionais em hexadecimal para cada modo, por exemplo `{ "dark": { "accent": "#ff8800" } }`. Veja [Temas](#temas) |
 
 A arte aceita caracteres ASCII imprimíveis, até 180 colunas e 100 linhas. Preserve os espaços à esquerda e use espaços em vez de tabulações. Emojis e desenhos com blocos Unicode não são aceitos. Cada SVG embute um subconjunto da Fira Code, então a aparência não depende das fontes instaladas.
+
+## Temas
+
+Cada cartão tem uma imagem escura e uma clara. Você escolhe um preset para cada uma com `theme`; o padrão é `github-dark` e `github-light`.
+
+| Preset | Aparência |
+| --- | --- |
+| `github-dark`, `github-light` | Cores do GitHub Primer (padrão) |
+| `dracula` | Dracula, escuro |
+| `tokyo-night`, `tokyo-night-day` | Tokyo Night, escuro e claro |
+| `solarized-dark`, `solarized-light` | Solarized, escuro e claro |
+
+```json
+{
+  "theme": { "dark": "tokyo-night", "light": "tokyo-night-day" }
+}
+```
+
+Qualquer preset funciona nos dois modos, então `"dark": "solarized-light"` é permitido. Um cartão claro numa página escura é escolha sua.
+
+Troque cores avulsas com `colors`. As chaves aceitas são `bg`, `fg`, `dim`, `accent` e `border`. Use valores `#rrggbb`, ou `""` em `border` para tirar a borda. Os 16 blocos da paleta vêm do preset.
+
+```json
+{
+  "theme": { "dark": "dracula" },
+  "colors": { "dark": { "accent": "#ff79c6" }, "light": { "border": "" } }
+}
+```
+
+As cores dos presets vêm dos projetos listados em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Não são temas oficiais desses projetos, e o ProfileTTY não é afiliado a eles. No Solarized, dois blocos da paleta têm a mesma cor do fundo; é assim que a paleta original é definida.
 
 ## Crie sua arte ASCII
 

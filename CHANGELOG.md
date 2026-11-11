@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Color themes: `theme` selects a preset for the dark and light cards (GitHub, Dracula, Tokyo Night, Solarized), and `colors` overrides single colors.
+
 ## 0.1.0
 
 First version.

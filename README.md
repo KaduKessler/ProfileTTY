@@ -93,8 +93,40 @@ npm run card -- path/to/profile.json dist
 | `prompt` | Optional `true` (default) or `false` to hide the top prompt line |
 | `leaders` | Optional `true` to draw dotted lines between labels and right-aligned values (default `false`) |
 | `command` | Optional prompt command, up to 30 characters (default `profiletty`) |
+| `theme` | Optional color preset for each mode, for example `{ "dark": "dracula", "light": "github-light" }`. See [Themes](#themes) |
+| `colors` | Optional hex overrides for each mode, for example `{ "dark": { "accent": "#ff8800" } }`. See [Themes](#themes) |
 
 ASCII artwork accepts printable ASCII characters, at most 180 columns and 100 rows. Preserve leading spaces and use spaces instead of tabs. Emoji and Unicode block drawings are not supported. Each SVG embeds a Fira Code subset, so glyph appearance does not depend on installed fonts.
+
+## Themes
+
+Each card has a dark and a light image. You choose a preset for each one with `theme`; the default is `github-dark` and `github-light`.
+
+| Preset | Look |
+| --- | --- |
+| `github-dark`, `github-light` | GitHub Primer colors (default) |
+| `dracula` | Dracula, dark |
+| `tokyo-night`, `tokyo-night-day` | Tokyo Night, dark and light |
+| `solarized-dark`, `solarized-light` | Solarized, dark and light |
+
+```json
+{
+  "theme": { "dark": "tokyo-night", "light": "tokyo-night-day" }
+}
+```
+
+Any preset works in either mode, so `"dark": "solarized-light"` is allowed. A card in a light preset on a dark page is your choice.
+
+Override single colors with `colors`. Allowed keys are `bg`, `fg`, `dim`, `accent` and `border`. Use `#rrggbb` values, or `""` for `border` to remove the outline. The 16 palette blocks come from the preset.
+
+```json
+{
+  "theme": { "dark": "dracula" },
+  "colors": { "dark": { "accent": "#ff79c6" }, "light": { "border": "" } }
+}
+```
+
+Preset colors come from the projects listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). They are not official themes of those projects, and ProfileTTY is not affiliated with them. In Solarized, two palette blocks match the card background; that is how the original palette is defined.
 
 ## Create your ASCII artwork
 
