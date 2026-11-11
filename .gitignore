@@ -1,0 +1,4 @@
+dist/
+node_modules/
+# Your own cards and test files. Never committed.
+local/

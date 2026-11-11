@@ -1,0 +1,35 @@
+{
+  "heading": "dev@profiletty",
+  "ascii": "logo.txt",
+  "command": "whoami",
+  "groups": [
+    {
+      "name": "Work",
+      "fields": [
+        { "label": "Role", "value": "Software Engineer" },
+        { "label": "Status", "value": "Open to projects" }
+      ]
+    },
+    {
+      "name": "Stack",
+      "fields": [
+        { "label": "Languages", "value": "TypeScript, Python, Go" },
+        { "label": "Frameworks", "value": "React, Astro, Node.js" }
+      ]
+    },
+    {
+      "name": "Environment",
+      "fields": [
+        { "label": "Editors", "value": "Neovim, VS Code" },
+        { "label": "Infra", "value": "Docker, Linux, Proxmox" }
+      ]
+    },
+    {
+      "name": "Life",
+      "fields": [
+        { "label": "Location", "value": "Somewhere, Earth" },
+        { "label": "Fuel", "value": "Coffee" }
+      ]
+    }
+  ]
+}
