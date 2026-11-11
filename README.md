@@ -102,12 +102,24 @@ ASCII artwork accepts printable ASCII characters, at most 180 columns and 100 ro
 
 Each card has a dark and a light image. You choose a preset for each one with `theme`; the default is `github-dark` and `github-light`.
 
-| Preset | Look |
-| --- | --- |
-| `github-dark`, `github-light` | GitHub Primer colors (default) |
-| `dracula` | Dracula, dark |
-| `tokyo-night`, `tokyo-night-day` | Tokyo Night, dark and light |
-| `solarized-dark`, `solarized-light` | Solarized, dark and light |
+<table>
+  <tr>
+    <td align="center"><b>github-dark</b><br><img src="docs/themes/github-dark.svg" alt="github-dark preset" width="480"></td>
+    <td align="center"><b>github-light</b><br><img src="docs/themes/github-light.svg" alt="github-light preset" width="480"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>dracula</b><br><img src="docs/themes/dracula.svg" alt="dracula preset" width="480"></td>
+    <td align="center"><b>tokyo-night</b><br><img src="docs/themes/tokyo-night.svg" alt="tokyo-night preset" width="480"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>tokyo-night-day</b><br><img src="docs/themes/tokyo-night-day.svg" alt="tokyo-night-day preset" width="480"></td>
+    <td align="center"><b>solarized-dark</b><br><img src="docs/themes/solarized-dark.svg" alt="solarized-dark preset" width="480"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>solarized-light</b><br><img src="docs/themes/solarized-light.svg" alt="solarized-light preset" width="480"></td>
+    <td></td>
+  </tr>
+</table>
 
 ```json
 {
