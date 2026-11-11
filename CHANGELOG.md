@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Color themes: `theme` selects a preset for the dark and light cards (20 presets: GitHub, Dracula, Tokyo Night, Nord, Monokai, Catppuccin, Gruvbox, Rosé Pine, One Dark, Kanagawa, Everforest, Night Owl, Solarized), and `colors` overrides single colors.
+
 ## 0.1.0
 
 First version.

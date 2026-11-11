@@ -5,6 +5,7 @@ import {mkdtempSync, readFileSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {render, wrap, validate, type Profile} from '../src/card.ts';
+import {PRESETS, PRESET_NAMES} from '../src/themes.ts';
 
 const profile: Profile = {
   heading: 'Kadu<&',
@@ -98,4 +99,43 @@ test('cli reports a missing ASCII file in plain words', () => {
   const run = spawnSync(process.execPath, [path.resolve('src/cli.ts'), path.join(dir, 'profile.json'), path.join(dir, 'out')], {encoding: 'utf8'});
   assert.equal(run.status, 1);
   assert.match(run.stderr, /Cannot read ASCII file "missing\.txt".*file not found/);
+});
+
+test('default colors are the GitHub presets', () => {
+  assert.ok(dark().includes('fill="#151b23"'));
+  assert.ok(light().includes('fill="#ffffff"'));
+});
+
+test('theme picks a preset for each mode', () => {
+  const svg = dark({theme: {dark: 'dracula'}});
+  assert.ok(svg.includes('fill="#282a36"'));
+  assert.ok(!svg.includes('fill="#151b23"'));
+  assert.ok(light({theme: {dark: 'dracula'}}).includes('fill="#ffffff"'));
+  assert.ok(light({theme: {light: 'solarized-light'}}).includes('fill="#fdf6e3"'));
+});
+
+test('every preset renders a complete card', () => {
+  for (const name of PRESET_NAMES) {
+    const svg = dark({theme: {dark: name}});
+    assert.ok(svg.includes(`fill="${PRESETS[name].bg}"`), name);
+    assert.equal(svg.match(/<rect /g)!.length, 1 + 16, name); // background plus 16 palette blocks
+  }
+});
+
+test('colors override single values and can remove the border', () => {
+  assert.ok(dark({colors: {dark: {bg: '#010203'}}}).includes('fill="#010203"'));
+  assert.ok(!light({colors: {light: {border: ''}}}).includes('stroke='));
+  assert.ok(light({colors: {light: {border: '#abcdef'}}}).includes('stroke="#abcdef"'));
+  assert.ok(dark({colors: {light: {bg: '#010203'}}}).includes('fill="#151b23"'));
+});
+
+test('theme and colors reject unknown or malformed values', () => {
+  const bad = (overrides: object) => validate({...profile, ...overrides});
+  assert.throws(() => bad({theme: {dark: 'nope'}}), /theme\.dark: unknown preset "nope"\. Available: .*dracula/);
+  assert.throws(() => bad({theme: {sepia: 'dracula'}}), /theme\.sepia: unknown mode/);
+  assert.throws(() => bad({theme: 'dracula'}), /theme: must be an object/);
+  assert.throws(() => bad({colors: {dark: {bg: 'red'}}}), /colors\.dark\.bg: must be a hex color/);
+  assert.throws(() => bad({colors: {dark: {bg: ''}}}), /colors\.dark\.bg: must be a hex color/);
+  assert.throws(() => bad({colors: {dark: {palette: '#000000'}}}), /colors\.dark\.palette: unknown color/);
+  assert.doesNotThrow(() => bad({colors: {light: {border: ''}}}));
 });
