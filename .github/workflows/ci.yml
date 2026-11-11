@@ -58,10 +58,11 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
-      - name: Regenerate docs/ from examples/ and compare
+      - name: Regenerate docs/ and check that nothing changed
         run: |
-          node src/cli.ts examples/profile.json "$RUNNER_TEMP/docs"
-          for theme in dark light; do
-            diff -q "$RUNNER_TEMP/docs/profile-$theme.svg" "docs/profile-$theme.svg" \
-              || { echo "::error::docs/profile-$theme.svg is stale. Run: npm run docs"; exit 1; }
-          done
+          npm run docs
+          if [ -n "$(git status --porcelain -- docs)" ]; then
+            git status --short -- docs
+            echo "::error::docs/ is stale. Run: npm run docs"
+            exit 1
+          fi

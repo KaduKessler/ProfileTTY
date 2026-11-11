@@ -126,6 +126,8 @@ Troque cores avulsas com `colors`. As chaves aceitas são `bg`, `fg`, `dim`, `ac
 }
 ```
 
+Veja todos os presets renderizados em [docs/THEMES.md](docs/THEMES.md).
+
 As cores dos presets vêm dos projetos listados em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Não são temas oficiais desses projetos, e o ProfileTTY não é afiliado a eles. No Solarized, dois blocos da paleta têm a mesma cor do fundo; é assim que a paleta original é definida.
 
 ## Crie sua arte ASCII

@@ -126,6 +126,8 @@ Override single colors with `colors`. Allowed keys are `bg`, `fg`, `dim`, `accen
 }
 ```
 
+See every preset rendered in [docs/THEMES.md](docs/THEMES.md).
+
 Preset colors come from the projects listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). They are not official themes of those projects, and ProfileTTY is not affiliated with them. In Solarized, two palette blocks match the card background; that is how the original palette is defined.
 
 ## Create your ASCII artwork

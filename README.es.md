@@ -126,6 +126,8 @@ Cambia colores sueltos con `colors`. Las claves permitidas son `bg`, `fg`, `dim`
 }
 ```
 
+Mira todos los presets renderizados en [docs/THEMES.md](docs/THEMES.md).
+
 Los colores de los presets vienen de los proyectos indicados en [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). No son temas oficiales de esos proyectos y ProfileTTY no está afiliado a ellos. En Solarized, dos bloques de la paleta tienen el mismo color que el fondo; así se define la paleta original.
 
 ## Crea tu arte ASCII

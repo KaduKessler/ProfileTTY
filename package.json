@@ -28,7 +28,7 @@
   "scripts": {
     "build": "node src/cli.ts examples/profile.json dist",
     "card": "node src/cli.ts",
-    "docs": "node src/cli.ts examples/profile.json docs && node -e \"require('fs').rmSync('docs/README.md')\"",
+    "docs": "node src/cli.ts examples/profile.json docs && node -e \"require('fs').rmSync('docs/README.md')\" && node scripts/gallery.ts",
     "test": "node --test test/*.test.ts"
   }
 }
