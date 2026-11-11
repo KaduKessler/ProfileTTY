@@ -44,6 +44,22 @@ Regenerate this page with `npm run docs`.
 
 <img src="themes/tokyo-night-day.svg" alt="Example card in the tokyo-night-day preset" width="1000">
 
+## nord
+
+```json
+{ "theme": { "dark": "nord" } }
+```
+
+<img src="themes/nord.svg" alt="Example card in the nord preset" width="1000">
+
+## monokai
+
+```json
+{ "theme": { "dark": "monokai" } }
+```
+
+<img src="themes/monokai.svg" alt="Example card in the monokai preset" width="1000">
+
 ## solarized-dark
 
 ```json

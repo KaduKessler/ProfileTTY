@@ -79,6 +79,30 @@ export const PRESETS = {
       ['#a1a6c5', '#f52a65', '#587539', '#8c6c3e', '#2e7de9', '#7847bd', '#007197', '#3760bf']
     ]
   },
+  // Nord, from nordtheme/nord (MIT). ANSI slots follow the Nord documentation for terminals.
+  nord: {
+    bg: '#2e3440',
+    fg: '#d8dee9',
+    dim: '#4c566a',
+    accent: '#88c0d0',
+    border: '',
+    palette: [
+      ['#3b4252', '#bf616a', '#a3be8c', '#ebcb8b', '#81a1c1', '#b48ead', '#88c0d0', '#e5e9f0'],
+      ['#4c566a', '#bf616a', '#a3be8c', '#ebcb8b', '#81a1c1', '#b48ead', '#8fbcbb', '#eceff4']
+    ]
+  },
+  // Monokai (classic), from tanvirtin/monokai.nvim (MIT). Monokai defines no cyan, so that slot shows its orange.
+  monokai: {
+    bg: '#26292c',
+    fg: '#f8f8f0',
+    dim: '#8f908a',
+    accent: '#66d9ef',
+    border: '',
+    palette: [
+      ['#2e323c', '#f92672', '#a6e22e', '#e6db74', '#66d9ef', '#ae81ff', '#fd971f', '#e3e3e1'],
+      ['#4d5154', '#e95678', '#a6e22e', '#e6db74', '#66d9ef', '#ae81ff', '#fd971f', '#f8f8f0']
+    ]
+  },
   // Solarized, from altercation/solarized (MIT).
   'solarized-dark': {
     bg: '#002b36',

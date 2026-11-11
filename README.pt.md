@@ -113,6 +113,10 @@ Cada cartão tem uma imagem escura e uma clara. Você escolhe um preset para cad
   </tr>
   <tr>
     <td align="center"><b>tokyo-night-day</b><br><img src="docs/themes/tokyo-night-day.svg" alt="tokyo-night-day preset" width="480"></td>
+    <td align="center"><b>nord</b><br><img src="docs/themes/nord.svg" alt="nord preset" width="480"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>monokai</b><br><img src="docs/themes/monokai.svg" alt="monokai preset" width="480"></td>
     <td align="center"><b>solarized-dark</b><br><img src="docs/themes/solarized-dark.svg" alt="solarized-dark preset" width="480"></td>
   </tr>
   <tr>

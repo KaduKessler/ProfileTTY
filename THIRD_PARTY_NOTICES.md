@@ -20,8 +20,10 @@ The optional theme presets use only color values, taken from these projects. Eac
 | --- | --- | --- |
 | `dracula` | [dracula/windows-terminal](https://github.com/dracula/windows-terminal), Copyright (c) 2019 thismat | MIT ([text](licenses/Dracula-MIT.txt)) |
 | `tokyo-night`, `tokyo-night-day` | [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim), Copyright folke | Apache-2.0 ([text](licenses/TokyoNight-Apache-2.0.txt)) |
+| `nord` | [nordtheme/nord](https://github.com/nordtheme/nord), Copyright (c) 2016-present Sven Greb | MIT ([text](licenses/Nord-MIT.txt)) |
+| `monokai` | [tanvirtin/monokai.nvim](https://github.com/tanvirtin/monokai.nvim), Copyright (c) 2021 Tanvir Islam | MIT ([text](licenses/Monokai-MIT.txt)) |
 | `solarized-dark`, `solarized-light` | [altercation/solarized](https://github.com/altercation/solarized), Copyright (c) 2011 Ethan Schoonover | MIT ([text](licenses/Solarized-MIT.txt)) |
 
-The names `github-dark` and `github-light` refer to the Primer colors above. The values are not modified, except that each preset maps them to the card's roles (background, text, accent and so on).
+The Monokai preset follows the classic palette of that project only. It is not Monokai Pro and is not made by the original Monokai author. The names `github-dark` and `github-light` refer to the Primer colors above. The values are not modified, except that each preset maps them to the card's roles (background, text, accent and so on).
 
 ProfileTTY is not affiliated with or endorsed by these projects.
