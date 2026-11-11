@@ -4,43 +4,44 @@
 
 **Sua identidade, em caracteres.**
 
-Gere cartões de perfil para o GitHub com visual de terminal usando um arquivo ASCII local e uma pequena configuração JSON.
+Cartões de perfil do GitHub com visual de terminal, gerados a partir de um arquivo ASCII e uma pequena configuração JSON.
 
-Node.js 24.12+ · TypeScript · Sem dependências de execução · Sem API hospedada
+[![CI](https://github.com/KaduKessler/profiletty/actions/workflows/ci.yml/badge.svg)](https://github.com/KaduKessler/profiletty/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Node.js 24.12+](https://img.shields.io/badge/node-24.12%2B-339933.svg)
+![Dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen.svg)
+
+[Início rápido](#início-rápido) · [Configuração](#configuração) · [Temas](#temas) · [Use no GitHub](#use-no-github)
 
 [English](README.md) · [Português](README.pt.md) · [Español](README.es.md)
 
-</div>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/profile-dark.svg">
-  <img src="docs/profile-light.svg" alt="Exemplo do ProfileTTY: marca de prompt em ASCII com atuação, tecnologias e ambiente de desenvolvimento" width="1000">
+  <img src="docs/profile-light.svg" alt="Exemplo do ProfileTTY: marca de prompt em ASCII com atuação, tecnologias e ambiente de desenvolvimento" width="900">
 </picture>
 
-## Um perfil que fica no seu repositório
+</div>
 
-O ProfileTTY gera SVGs estáticos. Seu README não precisa de servidor, chave de API, serviço de análise ou gerador externo de imagens. Os valores são escapados para XML, textos longos quebram em linhas e a altura acompanha o conteúdo.
+## Recursos
 
-- Temas claro e escuro.
-- Composição lado a lado, no estilo terminal.
-- Arte ASCII centralizada, preservando espaços.
-- Configuração JSON local com campos agrupados.
-- Títulos e descrições acessíveis nos SVGs.
+- **SVG estático.** Sem servidor, chave de API, análise de uso ou gerador hospedado. O cartão fica no seu repositório.
+- **20 temas de cores.** Dracula, Nord, Tokyo Night, Catppuccin e outros, além de cores personalizadas.
+- **Claro e escuro.** Um cartão por modo, escolhido automaticamente pelo GitHub.
+- **Sua arte ASCII.** Qualquer arquivo de texto, com os espaços preservados.
+- **Seguro e acessível.** Valores escapados para XML, textos longos quebram em linhas e cada SVG tem título e descrição.
+- **Zero dependências.** TypeScript nativo no Node.js, com um subconjunto da Fira Code embutido em cada SVG.
 
-## Experimente
+## Início rápido
 
-Use **Node.js 26 LTS** no desenvolvimento. **Node.js 24.12 ou superior** também é compatível. A execução de TypeScript é nativa; o gerador não compila nem verifica tipos com `tsc`.
+Requer **Node.js 24.12 ou superior** (26 LTS recomendado). Não é necessário `npm install`.
 
 ```sh
 git clone https://github.com/KaduKessler/profiletty.git
 cd profiletty
-npm test
 npm run build
 ```
 
-Não é necessário executar `npm install`.
-
-A saída é gravada em `dist/`:
+Isso gera o cartão de exemplo em `dist/`:
 
 ```text
 dist/
@@ -49,9 +50,13 @@ dist/
 └── profile-light.svg
 ```
 
-## Personalize
+Para personalizar, copie `examples/profile.json`, troque os dados e aponte `ascii` para seu arquivo de texto (caminho relativo ao JSON). As chaves do JSON permanecem em inglês; você pode traduzir os textos dos campos.
 
-Copie `examples/profile.json` e substitua os dados. Em `ascii`, indique seu próprio arquivo de texto; o caminho é resolvido em relação ao arquivo JSON. As chaves do JSON permanecem em inglês; você pode traduzir os textos dos campos.
+```sh
+npm run card -- path/to/profile.json dist
+```
+
+## Configuração
 
 ```json
 {
@@ -74,12 +79,6 @@ Copie `examples/profile.json` e substitua os dados. Em `ascii`, indique seu pró
 }
 ```
 
-Gere seu cartão:
-
-```sh
-npm run card -- path/to/profile.json dist
-```
-
 | Configuração | Valor aceito |
 | --- | --- |
 | `heading` | Texto não vazio, até 40 caracteres |
@@ -96,49 +95,23 @@ npm run card -- path/to/profile.json dist
 | `theme` | Preset de cores opcional para cada modo, por exemplo `{ "dark": "dracula", "light": "github-light" }`. Veja [Temas](#temas) |
 | `colors` | Substituições opcionais em hexadecimal para cada modo, por exemplo `{ "dark": { "accent": "#ff8800" } }`. Veja [Temas](#temas) |
 
-A arte aceita caracteres ASCII imprimíveis, até 180 colunas e 100 linhas. Preserve os espaços à esquerda e use espaços em vez de tabulações. Emojis e desenhos com blocos Unicode não são aceitos. Cada SVG embute um subconjunto da Fira Code, então a aparência não depende das fontes instaladas.
+### Arte ASCII
+
+Use um `.txt` de qualquer conversor, como o [Image to ASCII do ASCII Art Archive](https://www.asciiart.eu/image-to-ascii), ou desenhe sua arte. O ProfileTTY renderiza texto existente; não converte imagens. Use ASCII imprimível, até 180 colunas e 100 linhas, com espaços em vez de tabulações. Emojis e desenhos com blocos Unicode não são aceitos.
 
 ## Temas
 
-Cada cartão tem uma imagem escura e uma clara. Você escolhe um preset para cada uma com `theme`; o padrão é `github-dark` e `github-light`.
+Escolha um preset para cada modo com `theme`. O padrão é `github-dark` e `github-light`.
 
 <table>
   <tr>
-    <td align="center"><b>github-dark</b><br><img src="docs/themes/github-dark.svg" alt="github-dark preset" width="310"></td>
-    <td align="center"><b>github-light</b><br><img src="docs/themes/github-light.svg" alt="github-light preset" width="310"></td>
-    <td align="center"><b>dracula</b><br><img src="docs/themes/dracula.svg" alt="dracula preset" width="310"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>tokyo-night</b><br><img src="docs/themes/tokyo-night.svg" alt="tokyo-night preset" width="310"></td>
-    <td align="center"><b>tokyo-night-day</b><br><img src="docs/themes/tokyo-night-day.svg" alt="tokyo-night-day preset" width="310"></td>
-    <td align="center"><b>nord</b><br><img src="docs/themes/nord.svg" alt="nord preset" width="310"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>monokai</b><br><img src="docs/themes/monokai.svg" alt="monokai preset" width="310"></td>
-    <td align="center"><b>catppuccin-mocha</b><br><img src="docs/themes/catppuccin-mocha.svg" alt="catppuccin-mocha preset" width="310"></td>
-    <td align="center"><b>catppuccin-latte</b><br><img src="docs/themes/catppuccin-latte.svg" alt="catppuccin-latte preset" width="310"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>gruvbox-dark</b><br><img src="docs/themes/gruvbox-dark.svg" alt="gruvbox-dark preset" width="310"></td>
-    <td align="center"><b>gruvbox-light</b><br><img src="docs/themes/gruvbox-light.svg" alt="gruvbox-light preset" width="310"></td>
-    <td align="center"><b>rose-pine</b><br><img src="docs/themes/rose-pine.svg" alt="rose-pine preset" width="310"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>rose-pine-dawn</b><br><img src="docs/themes/rose-pine-dawn.svg" alt="rose-pine-dawn preset" width="310"></td>
-    <td align="center"><b>one-dark</b><br><img src="docs/themes/one-dark.svg" alt="one-dark preset" width="310"></td>
-    <td align="center"><b>kanagawa</b><br><img src="docs/themes/kanagawa.svg" alt="kanagawa preset" width="310"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>everforest-dark</b><br><img src="docs/themes/everforest-dark.svg" alt="everforest-dark preset" width="310"></td>
-    <td align="center"><b>everforest-light</b><br><img src="docs/themes/everforest-light.svg" alt="everforest-light preset" width="310"></td>
-    <td align="center"><b>night-owl</b><br><img src="docs/themes/night-owl.svg" alt="night-owl preset" width="310"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>solarized-dark</b><br><img src="docs/themes/solarized-dark.svg" alt="solarized-dark preset" width="310"></td>
-    <td align="center"><b>solarized-light</b><br><img src="docs/themes/solarized-light.svg" alt="solarized-light preset" width="310"></td>
-    <td></td>
+    <td align="center"><b>dracula</b><br><img src="docs/themes/dracula.svg" alt="preset dracula" width="310"></td>
+    <td align="center"><b>tokyo-night</b><br><img src="docs/themes/tokyo-night.svg" alt="preset tokyo-night" width="310"></td>
+    <td align="center"><b>catppuccin-latte</b><br><img src="docs/themes/catppuccin-latte.svg" alt="preset catppuccin-latte" width="310"></td>
   </tr>
 </table>
+
+Os 20 presets estão na **[galeria de temas](docs/THEMES.md)**.
 
 ```json
 {
@@ -146,9 +119,7 @@ Cada cartão tem uma imagem escura e uma clara. Você escolhe um preset para cad
 }
 ```
 
-Qualquer preset funciona nos dois modos, então `"dark": "solarized-light"` é permitido. Um cartão claro numa página escura é escolha sua.
-
-Troque cores avulsas com `colors`. As chaves aceitas são `bg`, `fg`, `dim`, `accent` e `border`. Use valores `#rrggbb`, ou `""` em `border` para tirar a borda. Os 16 blocos da paleta vêm do preset.
+Qualquer preset funciona nos dois modos. Troque cores avulsas com `colors`: as chaves aceitas são `bg`, `fg`, `dim`, `accent` e `border`, em valores `#rrggbb` (ou `""` em `border` para tirar a borda). Os 16 blocos da paleta vêm do preset.
 
 ```json
 {
@@ -157,23 +128,13 @@ Troque cores avulsas com `colors`. As chaves aceitas são `bg`, `fg`, `dim`, `ac
 }
 ```
 
-Veja todos os presets renderizados em [docs/THEMES.md](docs/THEMES.md).
-
 As cores dos presets vêm dos projetos listados em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Não são temas oficiais desses projetos, e o ProfileTTY não é afiliado a eles. No Solarized, dois blocos da paleta têm a mesma cor do fundo; é assim que a paleta original é definida.
-
-## Crie sua arte ASCII
-
-Use um `.txt` de qualquer conversor ou desenhe sua arte. O ProfileTTY renderiza texto existente; não converte imagens. Conversores como o [Image to ASCII do ASCII Art Archive](https://www.asciiart.eu/image-to-ascii) servem; não são dependência de execução. Exporte como texto e preserve os espaços.
 
 ## Use no GitHub
 
-Copie o conteúdo de `dist/` para seu repositório de perfil `USERNAME/USERNAME`, ou primeiro para um repositório de teste. Mantenha o README gerado e os SVGs na mesma pasta para os caminhos relativos funcionarem. Faça uma cópia do README atual antes de substituí-lo. Adicione seus links clicáveis abaixo da imagem.
+Copie o conteúdo de `dist/` para seu repositório de perfil `USERNAME/USERNAME` (ou primeiro para um repositório de teste), mantendo o README e os SVGs na mesma pasta. Faça uma cópia do README atual antes de substituí-lo e adicione seus links abaixo da imagem.
 
-O `<picture>` gerado seleciona a imagem clara ou escura. O comportamento final depende do GitHub e do ambiente de visualização; confira os dois temas. Em telas pequenas o card reduz junto com a página. Links desenhados dentro da imagem não substituem links Markdown.
-
-### Seleção automática de tema
-
-O README gerado usa o suporte do GitHub a `<picture>` para selecionar um SVG claro ou escuro previamente gerado conforme o tema de quem visualiza. Não é necessário JavaScript nem serviço hospedado. O SVG não muda de cor sozinho; o ambiente de visualização escolhe qual imagem exibir.
+O README gerado escolhe o SVG claro ou escuro com o suporte do GitHub a `<picture>`. Não há JavaScript nem serviço hospedado:
 
 ```html
 <picture>
@@ -182,35 +143,20 @@ O README gerado usa o suporte do GitHub a `<picture>` para selecionar um SVG cla
 </picture>
 ```
 
-Não combine `prefers-color-scheme` com outras condições, como `max-width`, no mesmo `media`: o GitHub reescreve as fontes de tema para quem está logado e descarta a condição extra. Ajuste os caminhos relativos conforme a pasta dos SVGs.
+Não combine `prefers-color-scheme` com outras condições, como `max-width`, no mesmo `media`: o GitHub reescreve as fontes de tema para quem está logado e descarta a condição extra. Links desenhados dentro de um SVG não substituem links Markdown. Confira o resultado no GitHub nos dois temas. Veja o [anúncio do GitHub sobre imagens conforme o tema](https://github.blog/changelog/2022-05-19-specify-theme-context-for-images-in-markdown-beta/).
 
-Veja o [anúncio do GitHub sobre imagens conforme o tema](https://github.blog/changelog/2022-05-19-specify-theme-context-for-images-in-markdown-beta/). Confira o resultado no GitHub nos dois temas.
-
-### Fork, clone ou download?
-
-- **Fork:** mantenha sua cópia no GitHub, personalize e acompanhe melhorias do projeto original.
-- **Clone:** gere localmente e copie apenas a saída para seu perfil.
-- **Download ZIP:** obtenha uma cópia local sem histórico Git.
-
-Para criar um cartão, clonar e copiar os arquivos gerados é o caminho mais simples. Faça um fork se quiser manter uma versão própria e receber atualizações. O projeto não é um pacote npm nem um serviço hospedado.
+Clone para gerar localmente e copie só a saída para seu perfil. Faça um fork se quiser manter uma versão própria e receber atualizações. O projeto não é um pacote npm nem um serviço hospedado.
 
 ## Desenvolvimento
 
 ```sh
 npm test
 npm run build
+npm run docs   # regenera docs/ (o CI falha se estiverem desatualizados)
 ```
 
-Os testes cobrem validação (incluindo mensagens de erro), escape de XML, quebra de linhas, altura conforme o conteúdo e a CLI. O Node remove os tipos na execução; os testes não equivalem a uma verificação estática de tipos.
+Os testes cobrem validação (incluindo mensagens de erro), escape de XML, quebra de linhas, altura conforme o conteúdo, temas e a CLI. O Node remove os tipos na execução; os testes não equivalem a uma verificação estática de tipos. Veja [CONTRIBUTING.md](CONTRIBUTING.md), em inglês.
 
-Veja o fluxo de contribuição em [CONTRIBUTING.md](CONTRIBUTING.md), em inglês.
+## Autor e licença
 
-## Autor
-
-Criado por [Carlos Kessler](https://github.com/KaduKessler).
-
-## Licença
-
-Código e documentação estão sob a [licença MIT](LICENSE).
-
-Os avisos de terceiros (Fira Code, cores do GitHub Primer) estão em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Criado por [Carlos Kessler](https://github.com/KaduKessler). Código e documentação sob a [licença MIT](LICENSE). Os avisos de terceiros (Fira Code, cores do GitHub Primer, temas de cores) estão em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
