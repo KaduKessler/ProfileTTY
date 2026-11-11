@@ -103,6 +103,134 @@ export const PRESETS = {
       ['#4d5154', '#e95678', '#a6e22e', '#e6db74', '#66d9ef', '#ae81ff', '#fd971f', '#f8f8f0']
     ]
   },
+  // Catppuccin, from catppuccin/windows-terminal and catppuccin/palette (MIT).
+  'catppuccin-mocha': {
+    bg: '#1e1e2e',
+    fg: '#cdd6f4',
+    dim: '#6c7086',
+    accent: '#89b4fa',
+    border: '',
+    palette: [
+      ['#45475a', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#f5c2e7', '#94e2d5', '#bac2de'],
+      ['#585b70', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#f5c2e7', '#94e2d5', '#a6adc8']
+    ]
+  },
+  'catppuccin-latte': {
+    bg: '#eff1f5',
+    fg: '#4c4f69',
+    dim: '#8c8fa1',
+    accent: '#1e66f5',
+    border: '#ccd0da',
+    palette: [
+      ['#5c5f77', '#d20f39', '#40a02b', '#df8e1d', '#1e66f5', '#ea76cb', '#179299', '#acb0be'],
+      ['#acb0be', '#d20f39', '#40a02b', '#df8e1d', '#1e66f5', '#ea76cb', '#179299', '#bcc0cc']
+    ]
+  },
+  // Gruvbox, from gruvbox-community/gruvbox (MIT). ANSI slots follow its terminal colors; the dark "black" uses dark1 so the block stays visible.
+  'gruvbox-dark': {
+    bg: '#282828',
+    fg: '#ebdbb2',
+    dim: '#928374',
+    accent: '#fabd2f',
+    border: '',
+    palette: [
+      ['#3c3836', '#cc241d', '#98971a', '#d79921', '#458588', '#b16286', '#689d6a', '#a89984'],
+      ['#928374', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#ebdbb2']
+    ]
+  },
+  'gruvbox-light': {
+    bg: '#fbf1c7',
+    fg: '#3c3836',
+    dim: '#928374',
+    accent: '#af3a03',
+    border: '#ebdbb2',
+    palette: [
+      ['#3c3836', '#cc241d', '#98971a', '#d79921', '#458588', '#b16286', '#689d6a', '#7c6f64'],
+      ['#928374', '#9d0006', '#79740e', '#b57614', '#076678', '#8f3f71', '#427b58', '#504945']
+    ]
+  },
+  // Rosé Pine, from rose-pine/windows-terminal (MIT).
+  'rose-pine': {
+    bg: '#191724',
+    fg: '#e0def4',
+    dim: '#908caa',
+    accent: '#c4a7e7',
+    border: '',
+    palette: [
+      ['#26233a', '#eb6f92', '#31748f', '#f6c177', '#9ccfd8', '#c4a7e7', '#ebbcba', '#e0def4'],
+      ['#908caa', '#eb6f92', '#31748f', '#f6c177', '#9ccfd8', '#c4a7e7', '#ebbcba', '#e0def4']
+    ]
+  },
+  'rose-pine-dawn': {
+    bg: '#faf4ed',
+    fg: '#575279',
+    dim: '#797593',
+    accent: '#907aa9',
+    border: '#f2e9e1',
+    palette: [
+      ['#f2e9e1', '#b4637a', '#286983', '#ea9d34', '#56949f', '#907aa9', '#d7827e', '#575279'],
+      ['#797593', '#b4637a', '#286983', '#ea9d34', '#56949f', '#907aa9', '#d7827e', '#575279']
+    ]
+  },
+  // One Dark, from atom/one-dark-syntax (MIT). Its colors are defined in HSL; the hex values here are those converted. The "black" slot is hsl(220, 13%, 28%).
+  'one-dark': {
+    bg: '#282c34',
+    fg: '#abb2bf',
+    dim: '#5c6370',
+    accent: '#61afef',
+    border: '',
+    palette: [
+      ['#3e4451', '#e06c75', '#98c379', '#e5c07b', '#61afef', '#c678dd', '#56b6c2', '#abb2bf'],
+      ['#5c6370', '#be5046', '#98c379', '#d19a66', '#61afef', '#c678dd', '#56b6c2', '#abb2bf']
+    ]
+  },
+  // Kanagawa (wave), from rebelot/kanagawa.nvim (MIT).
+  'kanagawa': {
+    bg: '#1f1f28',
+    fg: '#dcd7ba',
+    dim: '#727169',
+    accent: '#7e9cd8',
+    border: '',
+    palette: [
+      ['#090618', '#c34043', '#76946a', '#c0a36e', '#7e9cd8', '#957fb8', '#6a9589', '#c8c093'],
+      ['#727169', '#e82424', '#98bb6c', '#e6c384', '#7fb4ca', '#938aa9', '#7aa89f', '#dcd7ba']
+    ]
+  },
+  // Everforest, from sainnhe/everforest (MIT), medium contrast. ANSI slots are assigned by ProfileTTY.
+  'everforest-dark': {
+    bg: '#2d353b',
+    fg: '#d3c6aa',
+    dim: '#859289',
+    accent: '#a7c080',
+    border: '',
+    palette: [
+      ['#475258', '#e67e80', '#a7c080', '#dbbc7f', '#7fbbb3', '#d699b6', '#83c092', '#d3c6aa'],
+      ['#859289', '#e67e80', '#a7c080', '#dbbc7f', '#7fbbb3', '#d699b6', '#83c092', '#9da9a0']
+    ]
+  },
+  'everforest-light': {
+    bg: '#fdf6e3',
+    fg: '#5c6a72',
+    dim: '#939f91',
+    accent: '#8da101',
+    border: '#e6e2cc',
+    palette: [
+      ['#5c6a72', '#f85552', '#8da101', '#dfa000', '#3a94c5', '#df69ba', '#35a77c', '#939f91'],
+      ['#829181', '#f85552', '#8da101', '#dfa000', '#3a94c5', '#df69ba', '#35a77c', '#a6b0a0']
+    ]
+  },
+  // Night Owl, from sdras/night-owl-vscode-theme (MIT). The palette is its terminal.ansi* colors, so the "black" block matches the background.
+  'night-owl': {
+    bg: '#011627',
+    fg: '#d6deeb',
+    dim: '#637777',
+    accent: '#82aaff',
+    border: '',
+    palette: [
+      ['#011627', '#ef5350', '#22da6e', '#c5e478', '#82aaff', '#c792ea', '#21c7a8', '#ffffff'],
+      ['#575656', '#ef5350', '#22da6e', '#ffeb95', '#82aaff', '#c792ea', '#7fdbca', '#ffffff']
+    ]
+  },
   // Solarized, from altercation/solarized (MIT).
   'solarized-dark': {
     bg: '#002b36',

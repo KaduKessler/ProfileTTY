@@ -104,23 +104,38 @@ Cada cartão tem uma imagem escura e uma clara. Você escolhe um preset para cad
 
 <table>
   <tr>
-    <td align="center"><b>github-dark</b><br><img src="docs/themes/github-dark.svg" alt="github-dark preset" width="480"></td>
-    <td align="center"><b>github-light</b><br><img src="docs/themes/github-light.svg" alt="github-light preset" width="480"></td>
+    <td align="center"><b>github-dark</b><br><img src="docs/themes/github-dark.svg" alt="github-dark preset" width="310"></td>
+    <td align="center"><b>github-light</b><br><img src="docs/themes/github-light.svg" alt="github-light preset" width="310"></td>
+    <td align="center"><b>dracula</b><br><img src="docs/themes/dracula.svg" alt="dracula preset" width="310"></td>
   </tr>
   <tr>
-    <td align="center"><b>dracula</b><br><img src="docs/themes/dracula.svg" alt="dracula preset" width="480"></td>
-    <td align="center"><b>tokyo-night</b><br><img src="docs/themes/tokyo-night.svg" alt="tokyo-night preset" width="480"></td>
+    <td align="center"><b>tokyo-night</b><br><img src="docs/themes/tokyo-night.svg" alt="tokyo-night preset" width="310"></td>
+    <td align="center"><b>tokyo-night-day</b><br><img src="docs/themes/tokyo-night-day.svg" alt="tokyo-night-day preset" width="310"></td>
+    <td align="center"><b>nord</b><br><img src="docs/themes/nord.svg" alt="nord preset" width="310"></td>
   </tr>
   <tr>
-    <td align="center"><b>tokyo-night-day</b><br><img src="docs/themes/tokyo-night-day.svg" alt="tokyo-night-day preset" width="480"></td>
-    <td align="center"><b>nord</b><br><img src="docs/themes/nord.svg" alt="nord preset" width="480"></td>
+    <td align="center"><b>monokai</b><br><img src="docs/themes/monokai.svg" alt="monokai preset" width="310"></td>
+    <td align="center"><b>catppuccin-mocha</b><br><img src="docs/themes/catppuccin-mocha.svg" alt="catppuccin-mocha preset" width="310"></td>
+    <td align="center"><b>catppuccin-latte</b><br><img src="docs/themes/catppuccin-latte.svg" alt="catppuccin-latte preset" width="310"></td>
   </tr>
   <tr>
-    <td align="center"><b>monokai</b><br><img src="docs/themes/monokai.svg" alt="monokai preset" width="480"></td>
-    <td align="center"><b>solarized-dark</b><br><img src="docs/themes/solarized-dark.svg" alt="solarized-dark preset" width="480"></td>
+    <td align="center"><b>gruvbox-dark</b><br><img src="docs/themes/gruvbox-dark.svg" alt="gruvbox-dark preset" width="310"></td>
+    <td align="center"><b>gruvbox-light</b><br><img src="docs/themes/gruvbox-light.svg" alt="gruvbox-light preset" width="310"></td>
+    <td align="center"><b>rose-pine</b><br><img src="docs/themes/rose-pine.svg" alt="rose-pine preset" width="310"></td>
   </tr>
   <tr>
-    <td align="center"><b>solarized-light</b><br><img src="docs/themes/solarized-light.svg" alt="solarized-light preset" width="480"></td>
+    <td align="center"><b>rose-pine-dawn</b><br><img src="docs/themes/rose-pine-dawn.svg" alt="rose-pine-dawn preset" width="310"></td>
+    <td align="center"><b>one-dark</b><br><img src="docs/themes/one-dark.svg" alt="one-dark preset" width="310"></td>
+    <td align="center"><b>kanagawa</b><br><img src="docs/themes/kanagawa.svg" alt="kanagawa preset" width="310"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>everforest-dark</b><br><img src="docs/themes/everforest-dark.svg" alt="everforest-dark preset" width="310"></td>
+    <td align="center"><b>everforest-light</b><br><img src="docs/themes/everforest-light.svg" alt="everforest-light preset" width="310"></td>
+    <td align="center"><b>night-owl</b><br><img src="docs/themes/night-owl.svg" alt="night-owl preset" width="310"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>solarized-dark</b><br><img src="docs/themes/solarized-dark.svg" alt="solarized-dark preset" width="310"></td>
+    <td align="center"><b>solarized-light</b><br><img src="docs/themes/solarized-light.svg" alt="solarized-light preset" width="310"></td>
     <td></td>
   </tr>
 </table>
