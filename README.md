@@ -140,6 +140,8 @@ Preset colors come from the projects listed in [THIRD_PARTY_NOTICES.md](THIRD_PA
 
 The workflow uses this repository's action (`KaduKessler/profiletty@main`), which only writes the two SVGs. It never touches your `README.md`. Pin a commit SHA instead of `main` if you want fixed behavior.
 
+Already have a profile `README.md`? The Action does not edit it. Paste the `<picture>` block from [`template/README.md`](template/README.md) where you want the card.
+
 ### Manual copy
 
 Copy the contents of `dist/` into your `USERNAME/USERNAME` profile repository (or a test repository first), keeping the README and SVGs in the same directory. Back up your existing README before replacing it, and add your own links below the image.
