@@ -1,0 +1,27 @@
+name: Update profile card
+
+on:
+  push:
+    paths: [profile.json, logo.txt]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  card:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: KaduKessler/profiletty@main
+        with:
+          config: profile.json
+          output: .
+      - name: Commit changed cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-light.svg profile-dark.svg
+          git diff --cached --quiet || git commit -m "chore: update profile card"
+          git push

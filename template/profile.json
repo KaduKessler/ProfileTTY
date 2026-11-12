@@ -1,0 +1,22 @@
+{
+  "heading": "yourname@github",
+  "ascii": "logo.txt",
+  "command": "whoami",
+  "theme": { "dark": "github-dark", "light": "github-light" },
+  "groups": [
+    {
+      "name": "Work",
+      "fields": [
+        { "label": "Role", "value": "Your role" },
+        { "label": "Status", "value": "What you are up to" }
+      ]
+    },
+    {
+      "name": "Stack",
+      "fields": [
+        { "label": "Languages", "value": "Your languages" },
+        { "label": "Editor", "value": "Your editor" }
+      ]
+    }
+  ]
+}

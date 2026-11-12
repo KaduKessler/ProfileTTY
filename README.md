@@ -132,6 +132,16 @@ Preset colors come from the projects listed in [THIRD_PARTY_NOTICES.md](THIRD_PA
 
 ## Use on GitHub
 
+### No install: template and GitHub Action
+
+1. Create a repository named exactly like your username (`USERNAME/USERNAME`) and copy the files from [`template/`](template/) into it, keeping the `.github/workflows` folder. You can do this in the GitHub web editor.
+2. Edit `profile.json` and replace `logo.txt` with your own ASCII art.
+3. Commit. The workflow generates `profile-light.svg` and `profile-dark.svg` and commits them. Run it again from the **Actions** tab whenever needed.
+
+The workflow uses this repository's action (`KaduKessler/profiletty@main`), which only writes the two SVGs. It never touches your `README.md`. Pin a commit SHA instead of `main` if you want fixed behavior.
+
+### Manual copy
+
 Copy the contents of `dist/` into your `USERNAME/USERNAME` profile repository (or a test repository first), keeping the README and SVGs in the same directory. Back up your existing README before replacing it, and add your own links below the image.
 
 The generated README selects the light or dark SVG with GitHub's `<picture>` support. No JavaScript or hosted service is involved:
