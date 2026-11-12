@@ -6,7 +6,7 @@
 
 Terminal-style GitHub profile cards, generated from an ASCII file and a small JSON config.
 
-[![CI](https://github.com/KaduKessler/profiletty/actions/workflows/ci.yml/badge.svg)](https://github.com/KaduKessler/profiletty/actions/workflows/ci.yml)
+[![CI](https://github.com/KaduKessler/ProfileTTY/actions/workflows/ci.yml/badge.svg)](https://github.com/KaduKessler/ProfileTTY/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Node.js 24.12+](https://img.shields.io/badge/node-24.12%2B-339933.svg)
 ![Dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen.svg)
@@ -36,8 +36,8 @@ Terminal-style GitHub profile cards, generated from an ASCII file and a small JS
 Requires **Node.js 24.12 or newer** (26 LTS recommended). No `npm install` is needed.
 
 ```sh
-git clone https://github.com/KaduKessler/profiletty.git
-cd profiletty
+git clone https://github.com/KaduKessler/ProfileTTY.git
+cd ProfileTTY
 npm run build
 ```
 
@@ -138,7 +138,7 @@ Preset colors come from the projects listed in [THIRD_PARTY_NOTICES.md](THIRD_PA
 2. Edit `profile.json` and replace `logo.txt` with your own ASCII art.
 3. Commit. The workflow generates `profile-light.svg` and `profile-dark.svg` and commits them. Run it again from the **Actions** tab whenever needed.
 
-The workflow uses this repository's action (`KaduKessler/profiletty@main`), which only writes the two SVGs. It never touches your `README.md`. Pin a commit SHA instead of `main` if you want fixed behavior.
+The workflow uses this repository's action (`KaduKessler/ProfileTTY@main`), which only writes the two SVGs. It never touches your `README.md`. Pin a commit SHA instead of `main` if you want fixed behavior.
 
 Already have a profile `README.md`? The Action does not edit it. Paste the `<picture>` block from [`template/README.md`](template/README.md) where you want the card.
 

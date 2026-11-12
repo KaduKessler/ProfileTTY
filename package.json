@@ -10,13 +10,13 @@
     "terminal",
     "neofetch"
   ],
-  "homepage": "https://github.com/KaduKessler/profiletty#readme",
+  "homepage": "https://github.com/KaduKessler/ProfileTTY#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KaduKessler/profiletty.git"
+    "url": "git+https://github.com/KaduKessler/ProfileTTY.git"
   },
   "bugs": {
-    "url": "https://github.com/KaduKessler/profiletty/issues"
+    "url": "https://github.com/KaduKessler/ProfileTTY/issues"
   },
   "author": "Carlos Kessler (https://github.com/KaduKessler)",
   "license": "MIT",
