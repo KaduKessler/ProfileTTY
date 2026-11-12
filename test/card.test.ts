@@ -139,3 +139,10 @@ test('theme and colors reject unknown or malformed values', () => {
   assert.throws(() => bad({colors: {dark: {palette: '#000000'}}}), /colors\.dark\.palette: unknown color/);
   assert.doesNotThrow(() => bad({colors: {light: {border: ''}}}));
 });
+
+test('template/profile.json builds with the shipped CLI', () => {
+  const out = mkdtempSync(path.join(tmpdir(), 'profiletty-tpl-'));
+  const run = spawnSync(process.execPath, [path.resolve('src/cli.ts'), path.resolve('template/profile.json'), out], {encoding: 'utf8'});
+  assert.equal(run.status, 0, run.stderr);
+  assert.match(readFileSync(path.join(out, 'profile-dark.svg'), 'utf8'), /yourname@github/);
+});

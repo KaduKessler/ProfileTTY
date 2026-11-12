@@ -3,7 +3,7 @@
 ## Reporting a vulnerability
 
 Please report security problems privately through GitHub:
-[Report a vulnerability](https://github.com/KaduKessler/profiletty/security/advisories/new).
+[Report a vulnerability](https://github.com/KaduKessler/ProfileTTY/security/advisories/new).
 
 Do not open a public issue for a vulnerability.
 

@@ -6,7 +6,7 @@
 
 Tarjetas de perfil de GitHub con estética de terminal, generadas a partir de un archivo ASCII y una pequeña configuración JSON.
 
-[![CI](https://github.com/KaduKessler/profiletty/actions/workflows/ci.yml/badge.svg)](https://github.com/KaduKessler/profiletty/actions/workflows/ci.yml)
+[![CI](https://github.com/KaduKessler/ProfileTTY/actions/workflows/ci.yml/badge.svg)](https://github.com/KaduKessler/ProfileTTY/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Node.js 24.12+](https://img.shields.io/badge/node-24.12%2B-339933.svg)
 ![Dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen.svg)
@@ -36,8 +36,8 @@ Tarjetas de perfil de GitHub con estética de terminal, generadas a partir de un
 Requiere **Node.js 24.12 o posterior** (se recomienda 26 LTS). No necesitas `npm install`.
 
 ```sh
-git clone https://github.com/KaduKessler/profiletty.git
-cd profiletty
+git clone https://github.com/KaduKessler/ProfileTTY.git
+cd ProfileTTY
 npm run build
 ```
 

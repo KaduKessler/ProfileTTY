@@ -1,0 +1,33 @@
+name: ProfileTTY
+description: Generate terminal-style profile card SVGs from a JSON config and an ASCII file.
+author: Carlos Kessler
+branding:
+  icon: terminal
+  color: gray-dark
+
+inputs:
+  config:
+    description: Path to profile.json, relative to the workspace.
+    default: profile.json
+  output:
+    description: Directory for profile-light.svg and profile-dark.svg, relative to the workspace.
+    default: .
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version: '26'
+    - name: Generate cards
+      shell: bash
+      env:
+        CONFIG: ${{ inputs.config }}
+        OUTPUT: ${{ inputs.output }}
+        ACTION_PATH: ${{ github.action_path }}
+      run: |
+        tmp="$(mktemp -d)"
+        node "$ACTION_PATH/src/cli.ts" "$CONFIG" "$tmp"
+        mkdir -p "$OUTPUT"
+        # Copy only the SVGs: the generated README must never replace the user's profile README.
+        cp "$tmp/profile-light.svg" "$tmp/profile-dark.svg" "$OUTPUT/"
