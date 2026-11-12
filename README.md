@@ -138,7 +138,7 @@ Preset colors come from the projects listed in [THIRD_PARTY_NOTICES.md](THIRD_PA
 2. Edit `profile.json` and replace `logo.txt` with your own ASCII art.
 3. Commit. The workflow generates `profile-light.svg` and `profile-dark.svg` and commits them. Run it again from the **Actions** tab whenever needed.
 
-The workflow uses this repository's action (`KaduKessler/ProfileTTY@main`), which only writes the two SVGs. It never touches your `README.md`. Pin a commit SHA instead of `main` if you want fixed behavior.
+The workflow uses this repository's action (`KaduKessler/ProfileTTY@v1`), which only writes the two SVGs. It never touches your `README.md`. `v1` stays compatible; pin a full commit SHA if you want it frozen.
 
 Already have a profile `README.md`? The Action does not edit it. Paste the `<picture>` block from [`template/README.md`](template/README.md) where you want the card.
 
